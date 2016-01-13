@@ -84,14 +84,14 @@ class accountController extends database{
         unset($_SESSION['token']);
 		
         setcookie('lab2_remember', null, -1, '/');
-		setcookie('lab2_token', null, -1, '/');
-		setcookie('lab2_uuid', null, -1, '/');
+	setcookie('lab2_token', null, -1, '/');
+	setcookie('lab2_uuid', null, -1, '/');
 		
-		unset($_COOKIE['lab2_remember']);
-		unset($_COOKIE['lab2_token']);
-		unset($_COOKIE['lab2_uuid']);
+	unset($_COOKIE['lab2_remember']);
+	unset($_COOKIE['lab2_token']);
+	unset($_COOKIE['lab2_uuid']);
 		
-		session_destroy();
+	session_destroy();
 	}
     
     //login using cookies
