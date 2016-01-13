@@ -7,8 +7,11 @@ class database{
 	protected $ini_file = "config.ini";
 	public $config;
 	public $_db;
-	
+	public $cookieTimer;
+    
 	public function __construct() {
+        $this->cookieTimer = time() + (86400 * 14); // 1day * 14
+        
 		if ($this->config = parse_ini_file($this->ini_file)) {
 			$this->_db_host = $this->config['host'];
 			$this->_db_username = $this->config['username'];

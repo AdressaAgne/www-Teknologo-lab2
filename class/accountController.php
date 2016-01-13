@@ -30,7 +30,6 @@ class accountController extends database{
     
     // Normal Login
     public function login($username, $password, $remember){
-        $cookieTimer = (time() + (86400 * 14));
         //fetch Unique Salt for user
         $hashQuery = $this->_db->prepare("SELECT salt FROM account WHERE username = :username");
         $hashArr = array(
@@ -64,9 +63,9 @@ class accountController extends database{
                 //$_SESSION['token'] = $user['cookieHash'];
                 
                 if($remember){
-                    setcookie('lab2_uuid', $this->uuid, $cookieTimer, "/");
-                    setcookie('lab2_token', $this->newToken($this->uuid), $cookieTimer, "/");
-                    setcookie('lab2_remember', true, $cookieTimer, "/");
+                    setcookie('lab2_uuid', $this->uuid, $this->cookieTimer, "/");
+                    setcookie('lab2_token', $this->newToken($this->uuid), $this->cookieTimer, "/");
+                    setcookie('lab2_remember', true, $this->cookieTimer, "/");
                 }
                 return true;
             } else {
@@ -96,7 +95,6 @@ class accountController extends database{
     
     //login using cookies
     public function loginAdvanced($uuid, $hash){
-        $cookieTimer = (time() + (86400 * 14));
         //prepare to check if user got right password
         $query = $this->_db->prepare("SELECT * FROM account WHERE uuid = :uuid AND cookieHash = :hash");
         $arr = array(
@@ -115,8 +113,8 @@ class accountController extends database{
 
             $_SESSION['uuid'] = $this->uuid;
             
-            setcookie('lab2_uuid', $this->uuid, $cookieTimer, "/");
-            setcookie('lab2_token', $this->newToken($this->uuid), $cookieTimer, "/");
+            setcookie('lab2_uuid', $this->uuid, $this->cookieTimer, "/");
+            setcookie('lab2_token', $this->newToken($this->uuid), $this->cookieTimer, "/");
             
             return true;
         } else {
