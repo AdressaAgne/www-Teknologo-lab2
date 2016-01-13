@@ -6,6 +6,7 @@ class accountController extends database{
     
     //Shaing stuff like password
     protected function hashValue($value, $salt){
+        // todo: make use of password_hash()
         return sha1($salt.$value.$salt);
     }
     
@@ -79,18 +80,18 @@ class accountController extends database{
     //complete userlogout
     public function logout() {
         unset($_SESSION['remember']);
-	unset($_SESSION['uuid']);
+        unset($_SESSION['uuid']);
         unset($_SESSION['token']);
-		
+        
         setcookie('lab2_remember', null, -1, '/');
-	setcookie('lab2_token', null, -1, '/');
-	setcookie('lab2_uuid', null, -1, '/');
-		
-	unset($_COOKIE['lab2_remember']);
-	unset($_COOKIE['lab2_token']);
-	unset($_COOKIE['lab2_uuid']);
-		
-	session_destroy();
+        setcookie('lab2_token', null, -1, '/');
+        setcookie('lab2_uuid', null, -1, '/');
+        
+		unset($_COOKIE['lab2_remember']);
+        unset($_COOKIE['lab2_token']);
+        unset($_COOKIE['lab2_uuid']);
+        
+		session_destroy();
 	}
     
     //login using cookies
