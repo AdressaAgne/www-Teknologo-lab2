@@ -80,7 +80,7 @@ class accountController extends database{
     //complete userlogout
     public function logout() {
         unset($_SESSION['remember']);
-		unset($_SESSION['uuid']);
+	unset($_SESSION['uuid']);
         unset($_SESSION['token']);
 		
         setcookie('lab2_remember', null, -1, '/');
