@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.form {
+  width: 300px;
+  margin: 0 auto;
+  font-family: 'open sans';
+  box-sizing: border-box;
+  padding: 10px;
+}
+.form__elm {
+  width: 100%;
+  padding: 5px;
+}
+.form__label {
+  margin: 5px;
+  width: 100%;
+  display: block;
+  color: #232323;
+}
+.input__text {
+  border: 1px solid #e2e2e2;
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  width: 240px;
+  outline: none;
+  border-radius: 2px;
+}
+.input__btn {
+  width: 260px;
+  margin: 10px;
+  border: 1px solid #e2e2e2;
+  background-color: #f5f5f5;
+  padding: 15px;
+  outline: none;
+  border-radius: 2px;
+}
